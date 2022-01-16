@@ -3,6 +3,7 @@ import 'package:past_q_and_m/services/coursesData.dart';
 import 'package:past_q_and_m/services/courses.dart';
 import 'package:past_q_and_m/services/pass_q_data.dart';
 import 'package:past_q_and_m/services/pastq.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 
 class MyCourses extends StatefulWidget {
@@ -53,7 +54,10 @@ class _MyCoursesState extends State<MyCourses> {
       appBar: AppBar(
         backgroundColor: Colors.blueAccent,
         title: Text(
-            'Select Course'
+            'Select Course',
+          style: GoogleFonts.roboto(
+              fontWeight: FontWeight.w400
+          ),
         ),
         centerTitle: true,
         elevation: 0.0,
@@ -98,9 +102,16 @@ class _MyCoursesState extends State<MyCourses> {
                           loadCourses(data['courses'][index]);
                         },
                         title: Text(
-                            data['courses'][index].name
+                            data['courses'][index].name,
+                          style: GoogleFonts.roboto(
+                              color: Colors.blueAccent
+                          ),
                         ),
-                        subtitle: Text(data['courses'][index].title),
+                        subtitle: Text(data['courses'][index].title,
+                          style: GoogleFonts.roboto(
+                              color: Colors.blueAccent
+                          ),
+                        ),
                     ),
                   );
                 },

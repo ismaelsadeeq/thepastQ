@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:past_q_and_m/pages/widgets/question_picture.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class PassQ extends StatefulWidget {
   const PassQ({Key? key}) : super(key: key);
@@ -17,8 +18,10 @@ class _PassQState extends State<PassQ> {
       appBar: AppBar(
         backgroundColor: Colors.blueAccent,
         title: Text(
-
-            'Past Questions of ${data['course'].name}'
+            'Past Questions of ${data['course'].name}',
+            style: GoogleFonts.roboto(
+              fontWeight: FontWeight.w400
+            ),
         ),
         centerTitle: true,
         elevation: 0.0,

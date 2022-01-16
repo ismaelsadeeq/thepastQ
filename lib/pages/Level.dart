@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:past_q_and_m/services/courses.dart';
 import 'package:past_q_and_m/services/coursesData.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Level extends StatefulWidget {
   const Level({Key? key}) : super(key: key);
@@ -29,7 +30,10 @@ class _LevelState extends State<Level> {
       appBar: AppBar(
         backgroundColor: Colors.blueAccent,
         title: Text(
-            'Select Level'
+            'Select Level',
+            style: GoogleFonts.roboto(
+              fontWeight: FontWeight.w400
+          ),
         ),
         centerTitle: true,
         elevation: 0.0,
@@ -55,7 +59,11 @@ class _LevelState extends State<Level> {
                           loadCourses(data['levels'][index].name,data['departmentId']);
                         },
                         title: Text(
-                            data['levels'][index].name
+                            data['levels'][index].name,
+                            style: GoogleFonts.roboto(
+                                color: Colors.blueAccent
+                            ),
+
                         )
                     ),
                   );

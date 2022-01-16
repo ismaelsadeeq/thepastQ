@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:past_q_and_m/services/departmentData.dart';
 import 'package:past_q_and_m/services/level.dart';
 import 'package:past_q_and_m/services/levelData.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Department extends StatefulWidget {
   const Department({Key? key}) : super(key: key);
@@ -27,7 +28,10 @@ class _DepartmentState extends State<Department> {
       appBar: AppBar(
         backgroundColor: Colors.blueAccent,
         title: Text(
-            'Select Department'
+            'Select Department',
+          style: GoogleFonts.roboto(
+              fontWeight: FontWeight.w400
+          ),
         ),
         centerTitle: true,
         elevation: 0.0,
@@ -53,7 +57,10 @@ class _DepartmentState extends State<Department> {
                           loadLevel(data[index].id);
                         },
                         title: Text(
-                            data[index].name
+                            data[index].name,
+                          style: GoogleFonts.roboto(
+                              color: Colors.blueAccent
+                          ),
                         )
                     ),
                   );

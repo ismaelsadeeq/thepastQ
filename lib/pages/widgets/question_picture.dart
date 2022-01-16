@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:past_q_and_m/services/pass_q_data.dart';
+import 'package:google_fonts/google_fonts.dart';
+
 
 
 class QuestionPicture extends StatelessWidget {
@@ -25,9 +27,13 @@ class QuestionPicture extends StatelessWidget {
         children: [
           Text(
             passQ.title,
+            style:GoogleFonts.roboto(
+            ),
           ),
           Text(
             passQ.year,
+            style:GoogleFonts.roboto(
+            ),
           ),
           Expanded(
             child: ClipRRect(

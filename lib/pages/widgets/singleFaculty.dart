@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:past_q_and_m/services/fucultyData.dart';
+import 'package:google_fonts/google_fonts.dart';
+
 
 class SingleFaculty extends StatelessWidget {
   final FucultyData faculty;
@@ -12,7 +14,9 @@ class SingleFaculty extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text('${faculty.name}'),
+      child: Text(
+          '${faculty.name}',
+      ),
     );
   }
 }

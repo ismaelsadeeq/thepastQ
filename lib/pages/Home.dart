@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:past_q_and_m/services/fucultyData.dart';
-import 'package:past_q_and_m/pages/widgets/singleFaculty.dart';
 import 'package:past_q_and_m/services/department.dart';
 import 'package:past_q_and_m/services/departmentData.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -44,7 +44,9 @@ class _HomeState extends State<Home> {
               child: Center(
                 child: Text(
                     'Select a Faculty',
-
+                  style: GoogleFonts.roboto(
+                      fontWeight: FontWeight.w400
+                  ),
                 ),
               ),
             ),
@@ -60,7 +62,10 @@ class _HomeState extends State<Home> {
                         loadDepartment(data[index].id);
                         },
                       title: Text(
-                          data[index].name
+                          data[index].name,
+                        style: GoogleFonts.roboto(
+                            color: Colors.blueAccent
+                        ),
                       )
                     ),
                   );

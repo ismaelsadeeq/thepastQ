@@ -28,11 +28,15 @@ class QuestionPicture extends StatelessWidget {
           Text(
             passQ.title,
             style:GoogleFonts.roboto(
+              color:Colors.blueAccent,
+              fontWeight: FontWeight.w600
             ),
           ),
           Text(
             passQ.year,
             style:GoogleFonts.roboto(
+                color:Colors.blueAccent,
+                fontWeight: FontWeight.w600
             ),
           ),
           Expanded(

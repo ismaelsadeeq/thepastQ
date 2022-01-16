@@ -26,7 +26,7 @@ class _HomeState extends State<Home> {
       // backgroundColor:Colors.blueAccent[500],
       appBar: AppBar(
         backgroundColor: Colors.blueAccent,
-        title: Text('Past Question and Materials'),
+        title: Text('Past Examinations Question'),
         elevation: 0.0,
         centerTitle: true,
       ),
@@ -45,7 +45,8 @@ class _HomeState extends State<Home> {
                 child: Text(
                     'Select a Faculty',
                   style: GoogleFonts.roboto(
-                      fontWeight: FontWeight.w400
+                      color:Colors.blueAccent,
+                      fontWeight: FontWeight.w600
                   ),
                 ),
               ),

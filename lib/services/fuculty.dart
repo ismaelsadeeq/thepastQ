@@ -1,23 +1,27 @@
-// import 'package:http/http.dart';
-// import 'package:intl/intl.dart';
-
+import 'package:http/http.dart';
+import 'package:intl/intl.dart';
+import 'dart:convert';
 import 'fucultyData.dart';
+
 
 class Fuculty {
   List<FucultyData> faculties = [];
 
   Future<void> getFuculties() async {
-    // try {} catch (e) {
-    //   print("error is $e");
-      faculties = [
-        FucultyData("1", "Physical Sciences"),
-        FucultyData("2", "Life Sciences"),
-        FucultyData("2", "Environmental Science"),
-        FucultyData("2", "Agriculture"),
-        FucultyData("2", "Engineering and Engineering Technology"),
-        FucultyData("2", "Education"),
+    try {
+      var navUrl = Uri.https(
+          'thepastq.herokuapp.com', '/faculty/all', {'q': '{https}'});
+      Response response = await get(navUrl);
+      Map data = jsonDecode(response.body);
+      List payload = data['data'];
+      for(var i = 0;i<payload.length;i++){
+        var id = payload[i]['id'];
+        var name = payload[i]['name'];
+        faculties.add(FucultyData(id,name));
+      }
+    } catch (e) {
+      print("error is $e");
+    }
 
-      ];
-    // }
   }
 }

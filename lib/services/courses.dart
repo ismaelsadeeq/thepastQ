@@ -1,20 +1,33 @@
+import 'package:http/http.dart';
+import 'package:intl/intl.dart';
+import 'dart:convert';
 import 'coursesData.dart';
 
 class Courses {
   List<CoursesData> courses = [] ;
 
-  Future<void> getCourses(String departmentId,String level,String semester) async {
-    // try {} catch (e) {
-    //   print("error is $e");
-    courses = [
-      CoursesData("1", "CSC 302","Introduction to Digital Design and Microprocessor 3 Units"),
-      CoursesData("2", "CSC 304","Introduction to Agent Based Systems 3 Units"),
-      CoursesData("2", "CSC 308","Database Design and Management 3 Units"),
-      CoursesData("2", "CSC 310","Automata Theory, Computability and Formal Language 3 Units"),
-      CoursesData("2", "CSC 316","Operating System II"),
-      CoursesData("2","CSC 306", "Organization of Programming Languages"),
-      CoursesData("2","CSC 302", "Introduction to Entrepreneurial Studies"),
-    ];
-    // }
+  Future<void> getCourses(String level,String semester) async {
+    if (semester=="First Semester") {
+      semester = "1";
+    } else{
+      semester = '2';
+    }
+    try {
+      var navUrl = Uri.https(
+          'thepastq.herokuapp.com', '/course/level/$level/$semester', {'q': '{https}'});
+      Response response = await get(navUrl);
+      Map data = jsonDecode(response.body);
+      List payload = data['data'];
+      for(var i = 0;i<payload.length;i++){
+        var id = payload[i]['id'];
+        var name = payload[i]['name'];
+        var unit = payload[i]['unit'];
+        var title = payload[i]['title'];
+        courses.add(CoursesData(id,name,'$title $unit Unit'));
+      }
+    } catch (e) {
+      print("error is $e");
+
+    }
   }
 }

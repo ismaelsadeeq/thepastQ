@@ -1,19 +1,24 @@
 import 'departmentData.dart';
-
+import 'package:http/http.dart';
+import 'package:intl/intl.dart';
+import 'dart:convert';
 class Department{
   List<DepartmentData> department = [] ;
 
   Future<void> getDepartment(id) async {
-    // try {} catch (e) {
-    //   print("error is $e");
-    department = [
-      DepartmentData("1", "Computer Science"),
-      DepartmentData("2", "Statistics"),
-      DepartmentData("2", "Geology"),
-      DepartmentData("2", "Mathematics"),
-      DepartmentData("2", "Physics"),
-      DepartmentData("2", "Operations Research"),
-    ];
-    // }
+    try {
+      var navUrl = Uri.https(
+          'thepastq.herokuapp.com', '/department/faculty/$id', {'q': '{https}'});
+      Response response = await get(navUrl);
+      Map data = jsonDecode(response.body);
+      List payload = data['data'];
+      for(var i = 0;i<payload.length;i++){
+        var id = payload[i]['id'];
+        var name = payload[i]['name'];
+        department.add(DepartmentData(id,name));
+      }
+    } catch (e) {
+      print("error is $e");
+    }
   }
 }

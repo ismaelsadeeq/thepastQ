@@ -14,7 +14,7 @@ class _LevelState extends State<Level> {
   Map data = {};
   void loadCourses(level,departmentId) async {
     Courses courses = Courses();
-    await courses.getCourses(departmentId, level, "First Semester");
+    await courses.getCourses(level, "First Semester");
     Navigator.pushNamed(context, '/courses',
       arguments: {
         'departmentId':departmentId,
@@ -56,7 +56,7 @@ class _LevelState extends State<Level> {
                   return Card(
                     child: ListTile(
                         onTap: ()async {
-                          loadCourses(data['levels'][index].name,data['departmentId']);
+                          loadCourses(data['levels'][index].id,data['departmentId']);
                         },
                         title: Text(
                             data['levels'][index].name,

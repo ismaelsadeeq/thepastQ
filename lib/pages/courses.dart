@@ -21,7 +21,7 @@ class _MyCoursesState extends State<MyCourses> {
   void reloadSemester(semester,level,departmentId) async{
     if(semester=="Second Semester"){
       Courses courses = Courses();
-      await courses.getCourses(departmentId, level, semester);
+      await courses.getCourses(level, semester);
       setState(() {
         data = {
           'departmentId':departmentId,

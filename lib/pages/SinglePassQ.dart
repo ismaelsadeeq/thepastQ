@@ -37,7 +37,7 @@ class _SinglePastQState extends State<SinglePastQ> {
                   onPressed: ()async{
                     try {
                       // Saved with this method.
-                      var imageId = await ImageDownloader.downloadImage('${data.source}');
+                      var imageId = await ImageDownloader.downloadImage('https://${data.source}');
                       if (imageId == null) {
                         setState(() {
                           message = "oops! something went wrong";
@@ -51,14 +51,14 @@ class _SinglePastQState extends State<SinglePastQ> {
                       var size = await ImageDownloader.findByteSize(imageId);
                       var mimeType = await ImageDownloader.findMimeType(imageId);
                       setState(() {
-                        message = "picture saved";
+                        message = "Picture Saved";
                       });
-                      // showAlertDialog(context);
+                      showAlertDialog(context);
                     }  catch (error) {
                       setState(() {
-                        message = "picture saved";
+                        message = "oops! something went wrong";
                       });
-                      // showAlertDialog(context);
+                      showAlertDialog(context);
                       print(error);
 
                     }
@@ -72,34 +72,40 @@ class _SinglePastQState extends State<SinglePastQ> {
       ),
       body: Container(
         constraints: const BoxConstraints.expand(
-          width: 450,
-          height: 500,
+          // width: 450,
+          // height: 500,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Center(
-              child: Text(
-                data.title,
-                style:GoogleFonts.roboto(
-                    color:Colors.blueAccent,
-                    fontWeight: FontWeight.w600
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Center(
+                child: Text(
+                  data.title,
+                  style:GoogleFonts.roboto(
+                      color:Colors.blueAccent,
+                      fontWeight: FontWeight.w600
+                  ),
                 ),
               ),
             ),
-            Center(
-              child: Text(
-                data.year,
-                style:GoogleFonts.roboto(
-                    color:Colors.blueAccent,
-                    fontWeight: FontWeight.w600
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Center(
+                child: Text(
+                  data.year,
+                  style:GoogleFonts.roboto(
+                      color:Colors.blueAccent,
+                      fontWeight: FontWeight.w600
+                  ),
                 ),
               ),
             ),
             Expanded(
               child: ClipRRect(
                 child: Image.network(
-                  '${data.source}',
+                  'https://${data.source}',
                   fit: BoxFit.cover,
                 ),
               ),

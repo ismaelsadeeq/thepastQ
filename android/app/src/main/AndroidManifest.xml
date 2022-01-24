@@ -3,7 +3,9 @@
    <application
         android:label="thepastQ"
         android:icon="@mipmap/ic_launcher"
-        android:roundIcon="@mipmap/ic_launcher_round">
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:requestLegacyExternalStorage="true"
+        android:grantUriPermissions="true">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

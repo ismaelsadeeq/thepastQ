@@ -28,7 +28,7 @@ class QuestionPicture extends StatelessWidget {
             Expanded(
               child: ClipRRect(
                 child: Image.network(
-                  '${passQ.source}',
+                  'https://${passQ.source}',
                   fit: BoxFit.fitWidth,
                 ),
               ),

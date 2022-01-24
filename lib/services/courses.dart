@@ -23,7 +23,7 @@ class Courses {
         var name = payload[i]['name'];
         var unit = payload[i]['unit'];
         var title = payload[i]['title'];
-        courses.add(CoursesData(id,name,'$title $unit Unit'));
+        courses.add(CoursesData(id,name,'$title'));
       }
     } catch (e) {
       print("error is $e");

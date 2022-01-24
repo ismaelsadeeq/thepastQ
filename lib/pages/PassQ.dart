@@ -16,6 +16,18 @@ class _PassQState extends State<PassQ> {
   Widget build(BuildContext context) {
     data = data.isNotEmpty?data:ModalRoute.of(context)?.settings?.arguments as Map;
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        child: Text(
+          '+',
+          style: TextStyle(
+              fontSize: 30.0,
+              fontWeight: FontWeight.w300
+          ),
+        ),
+        onPressed: () {},
+        backgroundColor: Colors.blue
+      ),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       appBar: AppBar(
         backgroundColor: Colors.blueAccent,
         title: Text(
@@ -33,18 +45,16 @@ class _PassQState extends State<PassQ> {
             right: 16.0,
             top: 2
         ),
-        child :ListView.separated(
-          scrollDirection: Axis.horizontal,
-          itemCount:  data['passq'].length,
+        child:GridView.builder(
+          itemCount: data['passq'].length,
+          gridDelegate:
+          const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount:2),
           itemBuilder: (context, index) {
             final question =  data['passq'][index];
             return QuestionPicture(passQ: question);
           },
-          separatorBuilder: (context, index) {
-            return const SizedBox(width: 16);
-          },
         ),
-        ),
-      );
+      ),
+    );
   }
 }

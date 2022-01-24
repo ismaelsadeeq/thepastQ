@@ -17,7 +17,7 @@ class PassQ{
         var year = payload[i]['year'];
         var source = payload[i]['source'];
         source = source.substring(7);
-        passQ.add(PassQData(id,title,year,'thepastq.herokuapp.com/$source'));
+        passQ.add(PassQData(id,title,year,source));
       }
     } catch (e) {
       print("error is $e");

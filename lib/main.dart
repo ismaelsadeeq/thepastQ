@@ -6,19 +6,21 @@ import './pages/department.dart';
 import './pages/courses.dart';
 import './pages/PassQ.dart';
 import './pages/splashScreen.dart';
+import './pages/SinglePassQ.dart';
 
 void main() {
   runApp(
     MaterialApp(
       initialRoute:'/',
       routes: {
-        '/':(context)=>Splashing(),
-        '/load':(context)=>Loading(),
-        '/Home':(context)=>Home(),
-        '/department':(context)=>Department(),
-        '/courses':(context)=>MyCourses(),
-        '/level':(context)=>Level(),
-        '/passq':(context)=>PassQ()
+        '/':(context)=> Splashing(),
+        '/load':(context)=> Loading(),
+        '/Home':(context)=> Home(),
+        '/department':(context)=> Department(),
+        '/courses':(context)=> MyCourses(),
+        '/level':(context)=> Level(),
+        '/passq':(context)=> PassQ(),
+        '/singlePastQ':(context)=> SinglePastQ()
       },
       debugShowCheckedModeBanner: false
     )

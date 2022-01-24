@@ -19,7 +19,6 @@ class _MyCoursesState extends State<MyCourses> {
   bool isFirst = false;
   List<String> semester = ['First Semester','Second Semester'];
   void reloadSemester(semester,level,departmentId) async{
-    if(semester=="Second Semester"){
       Courses courses = Courses();
       await courses.getCourses(level, semester);
       setState(() {
@@ -29,7 +28,6 @@ class _MyCoursesState extends State<MyCourses> {
           'courses':courses.courses
         };
       });
-    }
   }
   void loadCourses(course)async{
     PassQ passq = PassQ();

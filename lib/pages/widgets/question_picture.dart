@@ -16,38 +16,25 @@ class QuestionPicture extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      // padding: const EdgeInsets.all(5),
-      constraints: const BoxConstraints.expand(
-        width: 450,
-        height: 500,
-      ),
-      child: Column(
-        // crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            passQ.title,
-            style:GoogleFonts.roboto(
-              color:Colors.blueAccent,
-              fontWeight: FontWeight.w600
-            ),
-          ),
-          Text(
-            passQ.year,
-            style:GoogleFonts.roboto(
-                color:Colors.blueAccent,
-                fontWeight: FontWeight.w600
-            ),
-          ),
-          Expanded(
-            child: ClipRRect(
-              child: Image.network(
-               'https://${passQ.source}',
-                fit: BoxFit.fitWidth,
+    return GestureDetector(
+      onTap: (){
+        Navigator.pushNamed(context, '/singlePastQ',arguments: passQ);
+      },
+      child: Container(
+        padding: const EdgeInsets.all(8),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(
+              child: ClipRRect(
+                child: Image.network(
+                  '${passQ.source}',
+                  fit: BoxFit.fitWidth,
+                ),
               ),
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }
